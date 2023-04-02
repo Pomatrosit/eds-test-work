@@ -2,8 +2,8 @@ import { Box, CardMedia, Modal, Stack, Typography } from "@mui/material";
 import { setActivePokemon } from "../store/pokemon.slice";
 import { useAppSelector } from "../hooks/useAppSelector";
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import { stringService } from "../helpers/string";
 import TagList from "../UI/TagList";
+import { uppercaseFirstLetter } from "../helpers/string";
 
 const style = {
   position: "absolute" as "absolute",
@@ -31,7 +31,7 @@ const PokemonDetailModal = () => {
         {pokemon && (
           <>
             <Typography textAlign="center" variant="h4">
-              {stringService.uppercaseFirstLetter(pokemon?.name)}
+              {uppercaseFirstLetter(pokemon?.name)}
             </Typography>
             <Stack direction="row">
               <CardMedia

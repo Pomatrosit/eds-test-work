@@ -28,6 +28,7 @@ const filterPokemonList = (
   params: IPokemonParams,
   list: Pick<IPokemon, "name" | "url">[] | undefined = []
 ) => {
+  console.log(params);
   let result = list;
   const search = params.search.trim();
   if (search) {
@@ -61,7 +62,7 @@ const PokemonList = () => {
   const list = useMemo(
     () =>
       filterPokemonList({ limit, page: activePage, search }, pokemons?.results),
-    [limit, activePage, search]
+    [limit, activePage, search, pokemons]
   );
 
   if (isLoading) return <Spinner />;

@@ -1,13 +1,13 @@
 import { Avatar, Box, Card, CardHeader, CardMedia } from "@mui/material";
 import { IPokemon } from "../models/pokemon";
 import { FC } from "react";
-import { stringService } from "../helpers/string";
 import { useGetOnePokemonQuery } from "../store/pokemon.api";
 import Spinner from "../UI/Spinner";
 import ErrorMessage from "../UI/ErrorMessage";
 import TagList from "../UI/TagList";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { setActivePokemon } from "../store/pokemon.slice";
+import { getFirstLetter, uppercaseFirstLetter } from "../helpers/string";
 
 interface IProps {
   pokemon: Pick<IPokemon, "name" | "url">;
@@ -35,10 +35,10 @@ const PokemonCard: FC<IProps> = ({ pokemon }) => {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "tomato" }} aria-label="recipe">
-            {stringService.getFirstLetter(pokemon.name)}
+            {getFirstLetter(pokemon.name)}
           </Avatar>
         }
-        title={stringService.uppercaseFirstLetter(pokemon.name)}
+        title={uppercaseFirstLetter(pokemon.name)}
       />
       <Box p={2}>
         {isLoading ? (
