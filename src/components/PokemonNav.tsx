@@ -6,8 +6,6 @@ const itemsPerPageValues = [10, 20, 50];
 
 interface IProps {
   count: number;
-  //   next: string | null;
-  //   previous: string | null;
 }
 
 const PokemonNav: FC<IProps> = ({ count }) => {

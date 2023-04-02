@@ -1,7 +1,20 @@
-import { useState } from "react";
+import React from "react";
+import { useSearchParams } from "react-router-dom";
 
-export const usePagination = () => {
-  const [itemsPerPage, setItemsPerPage] = useState("10");
+const usePagination = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  return { itemsPerPage, setItemsPerPage };
+  const activePage = searchParams.get("page") || 1;
+
+  const handlePageChange = (_: React.ChangeEvent<unknown>, newPage: number) => {
+    searchParams.set("page", String(newPage));
+    setSearchParams(searchParams);
+  };
+
+  return {
+    activePage: +activePage,
+    handlePageChange,
+  };
 };
+
+export default usePagination;
