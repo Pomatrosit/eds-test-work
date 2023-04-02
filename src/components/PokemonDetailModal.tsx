@@ -25,7 +25,6 @@ const PokemonDetailModal = () => {
     dispatch(setActivePokemon(null));
   };
 
-  console.log(pokemon);
   return (
     <Modal open={!!pokemon} onClose={handleClose}>
       <Box sx={style}>

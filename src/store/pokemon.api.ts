@@ -9,21 +9,13 @@ interface IGetAllPokemonsResponse {
   results: Pick<IPokemon, "name" | "url">[];
 }
 
-interface IGetAllPokemons {
-  limit: string;
-  offset: string;
-}
-
 export const pokemonApi = createApi({
   reducerPath: "pokemonApi",
   baseQuery: fetchBaseQuery(),
-  keepUnusedDataFor: 60 * 60,
   endpoints: (builder) => ({
-    getAllPokemons: builder.query<IGetAllPokemonsResponse, IGetAllPokemons>({
-      query: (data) =>
-        `${POKEMON_API_URL}/pokemon?limit=${
-          data.limit ? data.limit : 10
-        }&offset=${data.offset ? data.offset : 0}`,
+    getAllPokemons: builder.query<IGetAllPokemonsResponse, void>({
+      query: () => `${POKEMON_API_URL}/pokemon?offset=0&limit=1300`,
+      keepUnusedDataFor: 60 * 60 * 24,
     }),
     getOnePokemon: builder.query<IPokemon, string>({
       query: (url) => url,
