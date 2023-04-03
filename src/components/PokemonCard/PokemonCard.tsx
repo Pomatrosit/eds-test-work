@@ -1,13 +1,13 @@
 import { Avatar, Box, Card, CardHeader, CardMedia } from "@mui/material";
-import { IPokemon } from "../models/pokemon";
+import { IPokemon } from "../../models/pokemon";
 import { FC } from "react";
-import { useGetOnePokemonQuery } from "../store/pokemon.api";
-import Spinner from "../UI/Spinner";
-import ErrorMessage from "../UI/ErrorMessage";
-import TagList from "../UI/TagList";
-import { useAppDispatch } from "../hooks/useAppDispatch";
-import { setActivePokemon } from "../store/pokemon.slice";
-import { getFirstLetter, uppercaseFirstLetter } from "../helpers/string";
+import { useGetOnePokemonQuery } from "../../store/pokemon.api";
+import Spinner from "../../UI/Spinner";
+import ErrorMessage from "../../UI/ErrorMessage";
+import TagList from "../../UI/TagList";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { setActivePokemon } from "../../store/pokemon.slice";
+import { getFirstLetter, uppercaseFirstLetter } from "../../helpers/string";
 
 interface IProps {
   pokemon: Pick<IPokemon, "name" | "url">;

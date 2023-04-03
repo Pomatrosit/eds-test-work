@@ -1,7 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 
-const useSearch = () => {
+const usePokemonSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const search = searchParams.get("search") || "";
@@ -18,4 +18,4 @@ const useSearch = () => {
   return { search, handleSearchChange };
 };
 
-export default useSearch;
+export default usePokemonSearch;
